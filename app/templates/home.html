@@ -32,30 +32,44 @@
         </form>
     </div>
 
+    {# Galeria de personajes #}
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% if images|length == 0 %}
-        <h2 class="text-center">La búsqueda no arrojó resultados...</h2>
+        <h2 class="text-center">La búsqueda no arrojó resultados...</h2> {# Mensaje cuando no hay resultados #}
         {% else %} {% for img in images %}
-        <div class="col">
-            <div class="card mb-3 ms-5" style="max-width: 540px;">
+        <div class="col"> {# Asigna el color del borde segun el estado del personaje #}
+            {% if img.status == 'Alive' %}
+                <div class="card mb-3 ms-5 h-100 border-success" style="max-width: 540px;"> {# Verde si esta vivo #}
+            {% elif img.status == 'Dead' %}
+                <div class="card mb-3 ms-5 h-100 border-danger" style="max-width: 540px;"> {# Rojo si esta muerto #}
+            {% else %}
+                <div class="card mb-3 ms-5 h-100 border-warning" style="max-width: 540px;"> {# Naranja si el estado es desconocido #}
+            {% endif %}
                 <div class="row g-0">
+                    {# Imagen del personaje #}
                     <div class="col-md-4">
-                        <img src="{{ img.url }}" class="card-img-top" alt="imagen">
+                        <img src="{{ img.image }}" class="card-img-top" alt="imagen" style="object-fit: cover; width: 100%; height: 100%;">
                     </div>
 
+                    {# Informacion del personaje #}
                     <div class="col-md-8">
                         <div class="card-body">
                             <h3 class="card-title">{{ img.name }}</h3>
+                            {# Estado del personaje #}
                             <p class="card-text">
                                 <strong>
-                                            {% if true == 'Alive' %} 🟢 {{ img.status }} 
-                                            {% elif true == 'Dead' %} 🔴 {{ img.status }} 
-                                            {% else %} 🟠 {{ img.status }} 
-                                            {% endif %}
-                                        </strong>
+                                    {% if img.status == 'Alive' %}
+                                    🟢 {{ img.status }}
+                                    {% elif img.status == 'Dead' %}
+                                    🔴 {{ img.status }}
+                                    {% else %}
+                                    🟠 {{ img.status }}
+                                    {% endif %}
+                                </strong>
                             </p>
+                            {# Ultima ubicacion y episodio inicial #}
                             <p class="card-text"><small class="text-body-secondary">Última ubicación: {{ img.last_location }}</small></p>
-                            <p class="card-text"><small class="text-body-secondary">Episodio inicial: {{ img.first_seen }}</small></p>
+                            <p class="card-text"><small class="text-body-secondary">Episodio inicial: {{ img.episode_name }}</small></p>
                         </div>
                         {% if request.user.is_authenticated %}
                         <div class="card-footer text-center">
