@@ -1,0 +1,26 @@
+INFORME – IP
+Integrantes : Lucas Ibarra y Matias Toso
+Descripción:
+Consiste en el desarrollo de una aplicación web que interactúa con la API de Rick & Morty para mostrar información sobre personajes de la serie. La aplicación permite visualizar personajes, su estado (vivo, muerto o desconocido), su última ubicación conocida y el primer episodio donde aparecen
+El objetivo del proyecto es aplicar los conceptos de programación adquiridos en el transcurso del cuatrimestre aplicado a la programación web, el uso de APIs y la arquitectura multicapa para crear esta aplicación.
+
+Funcionalidades del proyecto:
+Visualización de Personajes:
+Muestra los personajes obtenidos desde la API con detalles como:
+Nombre.
+Estado (Vivo, Muerto, Desconocido).
+Última ubicación conocida.
+Episodio inicial.
+Indicadores Visuales para el Estado:
+Colores en los bordes de las tarjetas:
+Verde para "Vivo".
+Rojo para "Muerto".
+Naranja para "Desconocido".
+
+Funciones:
+Home: obtiene las imágenes de la API usando la capa de services, si el usuario está identificado, carga su lista de favoritos. Renderiza el template home.html en ambos listados
+getAllimages: está diseñada para interactuar con la API de Rick and Morty, extraer información detallada sobre los personajes, y devolver una lista con datos relevantes.
+Conclusiones:
+El trabajo fue un gran desafío organizarnos, y cumplir con los requisitos básicos para cumplir con los plazos dados.
+Con respecto al trabajo, nos permitió adquirir nuevas herramientas para interactuar con APIs, aplicar los conceptos básicos de programación aprendidos, aprender nuevas herramientas como Django.
+Continuamente se enfrentó desafíos, que van desde la instalación, copiado y lograr el objetivo del proyecto propuesto por los docentes, integrar todo y que funcione como se espera.
